@@ -4,7 +4,10 @@ const PORT = process.env.PORT
 //express variables
 const express = require('express')
 const app = express()
-
+//middlewares
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
 //routes
 app.get('/', (req,res) => {
     res.send('welcome to my bread app :D')
